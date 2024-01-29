@@ -180,29 +180,29 @@ export default function Product() {
       </div>
 
       <div className={`cart ${isCartVisible ? 'visible' : ''}`}>
-        <button className="close-cart" onClick={closeCart}>
-          Close
-        </button>
-        <h3>GIỎ HÀNG</h3>
-        <div className="cart">
-          {cart.map((product) => (
-            <div key={product.id}>
-              <img src={product.img} alt={product.name} />
-              <p>{product.name}</p>
-              <p>{product.price}</p>
-              <div className="quantity-controls">
-                <button onClick={() => decreaseQuantity(product.id)}>-</button>
-                <p>{product.quantity}</p>
-                <button onClick={() => increaseQuantity(product.id)}>+</button>
-              </div>
-              <button onClick={() => removeFromCart(product.id)}>Xóa</button>
-            </div>
-          ))}
-        </div>
+        <h3>GIỎ</h3>
         <div className="checkout-container">
-          <p>Tổng số lượng: {getTotalQuantity()}</p>
-          <p>Tổng giá trị: {getTotalPrice()} VNĐ</p>
-          <button className="checkout-button">Thanh toán</button>
+          <div className="cart">
+            <button className="close-cart" onClick={closeCart}>
+              Close
+            </button>
+            {cart.map((product) => (
+              <div className="logo" key={product.id}>
+                <img src={product.img} alt={product.name} />
+                <p>{product.name}</p>
+                <p>{product.price}</p>
+                <div className="quantity-controls">
+                  <button onClick={() => decreaseQuantity(product.id)}>-</button>
+                  <p>{product.quantity}</p>
+                  <button onClick={() => increaseQuantity(product.id)}>+</button>
+                </div>
+                <button onClick={() => removeFromCart(product.id)}>Xóa</button>
+              </div>
+            ))}
+            <p>Tổng số lượng: {getTotalQuantity()}</p>
+            <p>Tổng giá trị: {getTotalPrice()} VNĐ</p>
+            <button className="checkout-button">Thanh toán</button>
+          </div>
         </div>
       </div>
     </div>

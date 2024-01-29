@@ -185,6 +185,8 @@ export default function Product() {
           Close
         </button>
         <h3>GIỎ HÀNG</h3>
+  
+        <div className="checkout-container">
         <div className="cart">
           {cart.map((product) => (
             <div key={product.id}>
@@ -200,7 +202,6 @@ export default function Product() {
             </div>
           ))}
         </div>
-        <div className="checkout-container">
           <p>Tổng số lượng: {getTotalQuantity()}</p>
           <p>Tổng giá trị: {getTotalPrice()} VNĐ</p>
           <button className="checkout-button">Thanh toán</button>
